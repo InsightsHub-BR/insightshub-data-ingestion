@@ -1,70 +1,118 @@
-# Inserção de dados no Insights Hub via Postman
+# 📡 Inserção de dados no Insights Hub via Postman  
 
-Bem-vindo! 👋
-Este repositório reúne exemplos práticos e tutoriais para enviar dados de séries temporais (time series) ao Insights Hub utilizando o Postman.
-O objetivo é facilitar a integração de sensores simulados, aplicações e scripts com a plataforma, ajudando desenvolvedores e equipes a testar rapidamente fluxos de ingestão de dados.
+Bem-vindo! 👋  
 
-Aqui você vai encontrar:
+Este repositório reúne **exemplos práticos** e **tutoriais** para enviar dados de séries temporais (*time series*) ao **Insights Hub** utilizando o **Postman**.  
 
-✅ Exemplos prontos de JSON para envio de dados.
+O objetivo é **facilitar a integração** de sensores simulados, aplicações e scripts com a plataforma, ajudando desenvolvedores e equipes a **testar rapidamente fluxos de ingestão de dados**.  
 
-✅ Explicações sobre autenticação e headers necessários.
+---
 
-✅ Boas práticas para estruturar assets, aspects e propriedades.
+## 📂 O que você vai encontrar aqui  
 
-✅ Passo a passo para visualizar os dados no Monitor do Insights Hub.
+- ✅ Exemplos prontos de **JSON** para envio de dados  
+- ✅ Explicações sobre **autenticação e headers necessários**  
+- ✅ Boas práticas para estruturar **assets, aspects e propriedades**  
+- ✅ Passo a passo para visualizar os dados no **Monitor do Insights Hub**  
 
-Este guia foi criado para ser simples e direto, servindo tanto para iniciantes quanto para quem já tem experiência com a plataforma e deseja acelerar a prototipagem de integrações.
+Este guia foi criado para ser **simples e direto**, servindo tanto para iniciantes quanto para quem já tem experiência com a plataforma e deseja acelerar a prototipagem de integrações.  
 
-**Objetivo:  Obter as credenciais de acesso para autenticação via API. Utilizando developer cockpit**
+---
 
-Passos:
-Acesse o Launchpad do Insights Hub (necessário possuir acesso ao Developer Cockpit)
+## 🎯 Primeiro objetivo  
 
-Vá em Settings → Applications.
+**Obter as credenciais de acesso para autenticação via API, utilizando o Developer Cockpit.**  
 
-Clique em “Create App”.
+### 🔑 Passos  
 
-Preencha as informações básicas (nome, descrição etc.) Após isto clique em Role Configure.
+1. Acesse o **Launchpad do Insights Hub** (necessário possuir acesso ao Developer Cockpit).  
+2. Vá em **Settings → Applications**.  
+3. Clique em **Create App**.  
+4. Preencha as informações básicas (nome, descrição etc.) e clique em **Role Configure**.  
 
-![image.png](image.png)
+![image.png](image.png)  
 
-Após salvar, vá até App Credentials, gere um novo acesso clicando em issue access, copie os dados gerados de Client ID e Client Secret. Em seguida clique em Download App Credentials Postman Collection with Examples. (**Guarde as informações apropriadamente, você não irá poder visualiza-las novamente**).
+5. Após salvar, vá até **App Credentials**, gere um novo acesso clicando em **Issue access**.  
+6. Copie os dados gerados de **Client ID** e **Client Secret**.  
+7. Clique em **Download App Credentials Postman Collection with Examples**.  
+   > ⚠️ **Atenção:** Guarde essas informações em local seguro. Você **não poderá visualizá-las novamente**.  
 
-![image.png](image%201.png)
+![image.png](image%201.png)  
 
-**Objetivo: Inserir os dados no Postman para fazer o envio de dados**
+---
 
-Na tela inicial do Postman selecione import e selecione o arquivo Postman collection. Em seguida selecione a opção Generate App Credential para gerar o access token, copie o Token.
+## 📥 Inserindo dados no Postman  
 
-![image.png](image%202.png)
+### Importando a Collection  
+- Na tela inicial do **Postman**, selecione **Import** e carregue o arquivo da Postman Collection.  
+- Em seguida, selecione a opção **Generate App Credential** para gerar o **Access Token**.  
+- Copie o **Token**.  
 
-O próximo passo é copiar o assetId do Asset a qual iremos fazer o envio de dados, você consegue visualiza-lo na URL do navegador
+![image.png](image%202.png)  
 
-![image.png](image%203.png)
+---
 
-Ou se preferir pode utilizar o Get assets of existing tenant
+## 🔎 Obtendo o Asset ID  
 
-![image.png](image%204.png)
+- O próximo passo é copiar o **assetId** do Asset para o qual iremos enviar os dados.  
+- Você pode visualizá-lo diretamente na **URL do navegador**:  
 
-Com essas informações podemos realizar o PUT de dados para o asset desejado. Após o assetId é necessário colocar o aspectname utilziado naquele asset, como no exemplo abaixo.
+![image.png](image%203.png)  
 
-**PUT:** https://gateway.eu1.mindsphere.io/api/iottimeseries/v3/timeseries/{assetId}/{aspectName}
+- Ou, se preferir, pode utilizar a chamada **Get assets of existing tenant**:  
 
-![image.png](image%205.png)
+![image.png](image%204.png)  
 
-Configure agora o Authorization, selecione Bearer Token e cole o token previamente gerado.
+---
 
-![image.png](image%206.png)
+## 🚀 Enviando dados  
 
-Após termos o ambiente devidamente configurado, podemos fazer o envio de dados via JSON de duas formas: A primeira é indo até raw e colando o JSON manualmente como no exemplo abaixo: Será necessário usar o seguinte formato personalizado para as células de **timestamp: aaaa-mm-dd"T"hh:mm:ss"Z”**
+Com as informações em mãos, podemos realizar o **PUT** de dados para o asset desejado.  
 
-![image.png](image%207.png)
+- Após o `assetId`, é necessário colocar o `aspectName` utilizado naquele asset.  
 
-Após o envio, os dados ficam gravados no asset selecionado dentro do Insights Hub e podem ser acompanhados diretamente pelo Monitor.
+**Exemplo de endpoint:**  
+PUT https://gateway.eu1.mindsphere.io/api/iottimeseries/v3/timeseries/{assetId}/{aspectName}
 
-![image.png](image%208.png)
 
-O segundo caminho é enviar um arquivo JSON com os dados, para isso selecione binary e escolha o arquivo a ser enviado.
+![image.png](image%205.png)  
 
-![image.png](image%209.png)
+---
+
+### Configuração de Autenticação  
+
+- Vá até a aba **Authorization** no Postman.  
+- Selecione **Bearer Token**.  
+- Cole o **Token** previamente gerado.  
+
+![image.png](image%206.png)  
+
+---
+
+### Método 1 – Envio de JSON manual (raw)  
+
+- Vá até a aba **Body → raw** e cole o JSON diretamente.  
+- Use sempre o formato ISO 8601 para timestamp:  
+**aaaa-mm-dd"T"hh:mm:ss"Z"**
+  
+![image.png](image%207.png)  
+
+Após o envio:  
+- Os dados ficam gravados no **asset selecionado**.  
+- Eles podem ser acompanhados diretamente no **Monitor do Insights Hub**.  
+
+![image.png](image%208.png)  
+
+---
+
+### Método 2 – Envio via arquivo JSON (binary)  
+
+- Vá até a aba **Body → binary**.  
+- Selecione o **arquivo JSON** a ser enviado.  
+
+![image.png](image%209.png)  
+
+---
+
+✨ Pronto! Agora você já consegue inserir e visualizar dados no **Insights Hub** usando o **Postman**.  
+
