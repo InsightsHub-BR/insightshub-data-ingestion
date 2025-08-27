@@ -1,5 +1,21 @@
 # Inserção de dados no Insights Hub via Postman
 
+Bem-vindo! 👋
+Este repositório reúne exemplos práticos e tutoriais para enviar dados de séries temporais (time series) ao Insights Hub utilizando o Postman.
+O objetivo é facilitar a integração de sensores simulados, aplicações e scripts com a plataforma, ajudando desenvolvedores e equipes a testar rapidamente fluxos de ingestão de dados.
+
+Aqui você vai encontrar:
+
+✅ Exemplos prontos de JSON para envio de dados.
+
+✅ Explicações sobre autenticação e headers necessários.
+
+✅ Boas práticas para estruturar assets, aspects e propriedades.
+
+✅ Passo a passo para visualizar os dados no Monitor do Insights Hub.
+
+Este guia foi criado para ser simples e direto, servindo tanto para iniciantes quanto para quem já tem experiência com a plataforma e deseja acelerar a prototipagem de integrações.
+
 **Objetivo:  Obter as credenciais de acesso para autenticação via API. Utilizando developer cockpit**
 
 Passos:
